@@ -104,7 +104,7 @@ function Croom() {
         if (localStorage.getItem("code")) return
         else {
             try {
-                fetch("http://192.168.42.145:5000/create", { method: "GET" })
+                fetch("https://anin-2.onrender.com/create", { method: "GET" })
                     .then(res => res.json())
                     .then(data => {
                         localStorage.setItem("code", JSON.stringify(data))
@@ -118,7 +118,7 @@ function Croom() {
     }, []);
 
     useEffect(() => {
-        const newSocket = io("http://192.168.42.145:5000/");
+        const newSocket = io("https://anin-2.onrender.com/");
         setSocket(newSocket);
         newSocket.on("connect", () => { });
 
