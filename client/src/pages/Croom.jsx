@@ -14,9 +14,30 @@ function createPeer(userToSignal, callerID, stream,socket) {
         stream,
         config: {
           iceServers: [
-            { urls: "stun:stun.l.google.com:19302" }  // Google STUN server
-            // You can add TURN servers here if you have them
-          ]
+      {
+        urls: "stun:stun.relay.metered.ca:80",
+      },
+      {
+        urls: "turn:global.relay.metered.ca:80",
+        username: "8dedc85cf371c73cd9de5afa",
+        credential: "RKK45OELEJ9WqnqP",
+      },
+      {
+        urls: "turn:global.relay.metered.ca:80?transport=tcp",
+        username: "8dedc85cf371c73cd9de5afa",
+        credential: "RKK45OELEJ9WqnqP",
+      },
+      {
+        urls: "turn:global.relay.metered.ca:443",
+        username: "8dedc85cf371c73cd9de5afa",
+        credential: "RKK45OELEJ9WqnqP",
+      },
+      {
+        urls: "turns:global.relay.metered.ca:443?transport=tcp",
+        username: "8dedc85cf371c73cd9de5afa",
+        credential: "RKK45OELEJ9WqnqP",
+      },
+  ]
         }
       });
     peer.on("signal", signal => {
